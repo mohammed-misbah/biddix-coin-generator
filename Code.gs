@@ -11,7 +11,7 @@ function generateDescriptionsAndSEO() {
   }
 
   const sheet = SpreadsheetApp.openById(
-    '1qXZMQtvl03aLfe4x7tGKRQa6r9ANRf5_5mm9SrC0UKE'
+    'GOOGLE_SHEET_ID'
   ).getSheetByName('Sheet1');
 
   if (!sheet) {
