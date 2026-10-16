@@ -23,10 +23,7 @@ function generateDescriptionsAndSEO() {
   console.log('STARTING DESCRIPTION + SEO');
   console.log('Last row: ' + lastRow);
 
-
-  // ==========================================================
   // PROCESS EVERY ROW
-  // ==========================================================
 
   for (let row = START_ROW; row <= lastRow; row++) {
 
@@ -43,11 +40,8 @@ function generateDescriptionsAndSEO() {
       continue;
     }
 
-
-    // ==========================================================
     // PART 1 — DESCRIPTION
     // COLUMN D
-    // ==========================================================
 
     if (!description) {
 
@@ -130,10 +124,8 @@ function generateDescriptionsAndSEO() {
     }
 
 
-    // ==========================================================
     // PART 2 — SEO WORDS
     // COLUMN E
-    // ==========================================================
 
     // Read description again because it may have just been created
     description = sheet.getRange(row, 4).getValue();
@@ -264,11 +256,8 @@ RULES:
 }
 
 
-
-// ==========================================================
 // GEMINI API FUNCTION
 // USED BY BOTH DESCRIPTION AND SEO
-// ==========================================================
 
 function callGeminiWithRetry(apiKey, prompt) {
 
@@ -313,9 +302,7 @@ function callGeminiWithRetry(apiKey, prompt) {
     const text = response.getContentText();
 
 
-    // ========================================================
     // SUCCESS
-    // ========================================================
 
     if (status === 200) {
 
@@ -364,10 +351,7 @@ function callGeminiWithRetry(apiKey, prompt) {
       return result;
     }
 
-
-    // ========================================================
     // TEMPORARY API PROBLEM
-    // ========================================================
 
     if (status === 429 || status === 503) {
 
@@ -383,10 +367,6 @@ function callGeminiWithRetry(apiKey, prompt) {
 
       continue;
     }
-
-    // ========================================================
-    // OTHER API ERROR
-    // ========================================================
 
     throw new Error(
       'Gemini API error ' +
