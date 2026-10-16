@@ -1,4 +1,4 @@
-const START_ROW = 3700;
+const START_ROW = 0005;
 
 function generateDescriptionsAndSEO() {
 
